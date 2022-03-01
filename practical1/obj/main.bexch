@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\practical1\hello_world.gpr
+20220301150450 a7ebb23ce54d0be06c93b99b598e9211
+[BOUND OBJECT FILES]
+C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\practical1\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\practical1\obj\
+-LC:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\practical1\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000
