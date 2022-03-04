@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\sortingAlgorithms\sortingalgorithms.gpr
+20220303144552 44c8b4fc09b686e07de8d22999da4be6
+[BOUND OBJECT FILES]
+C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\sortingAlgorithms\obj\sorting.o
+C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\sortingAlgorithms\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\sortingAlgorithms\obj\
+-LC:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\sortingAlgorithms\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000
