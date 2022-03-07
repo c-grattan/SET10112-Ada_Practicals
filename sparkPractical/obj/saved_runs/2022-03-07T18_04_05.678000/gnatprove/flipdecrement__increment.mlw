@@ -1,0 +1,154 @@
+module Flipdecrement__increment__num
+  use _gnatprove_standard.Main
+  use int.Int
+  
+  val num : int__ref
+end
+
+module Flipdecrement__decary
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type decary = <range 0 10>
+  
+  val function first : int
+    ensures { result = (0 : int) }
+  
+  val function last : int
+    ensures { result = (10 : int) }
+  
+  predicate in_range (x: int) = ((first <= x) /\ (x <= last))
+  
+  val in_range (x: int) : bool
+    ensures { result <-> (in_range (x : int)) }
+  
+  clone export ada__model.Static_Discrete with
+    axiom .,
+    type t = decary,
+    function first = first,
+    function last = last,
+    predicate in_range = in_range
+  
+  type decary__ref = { mutable decary__content : decary }
+  
+  function decary__ref_decary__content__projection (a: decary__ref) : decary =
+    a.decary__content
+  
+  meta "model_projection" function decary__ref_decary__content__projection
+  
+  meta "inline:no" function decary__ref_decary__content__projection
+  
+  val decary__havoc (x: decary__ref) : unit
+    writes { x }
+end
+
+module Flipdecrement__decary___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Flipdecrement__decary as Flipdecrement__decary
+  
+  predicate dynamic_invariant (temp___expr_172: int) (temp___is_init_168: bool) (temp___skip_constant_169: bool) (temp___do_toplevel_170: bool) (temp___do_typ_inv_171: bool) =
+    if ((temp___is_init_168 = True) \/
+          (Flipdecrement__decary.first <= Flipdecrement__decary.last)) then
+      (((Flipdecrement__decary.dynamic_property Flipdecrement__decary.first)
+          Flipdecrement__decary.last)
+         temp___expr_172)
+    else true
+  
+  val dynamic_invariant (temp___expr_172: int) (temp___is_init_168: bool) (temp___skip_constant_169: bool) (temp___do_toplevel_170: bool) (temp___do_typ_inv_171: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant (temp___expr_172 : int))
+                      (temp___is_init_168 : bool))
+                     (temp___skip_constant_169 : bool))
+                    (temp___do_toplevel_170 : bool))
+                   (temp___do_typ_inv_171 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_173: int) (temp___skip_top_level_174: bool) =
+    true
+  
+  val default_initial_assumption (temp___expr_173: int) (temp___skip_top_level_174: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption (temp___expr_173 : int))
+                   (temp___skip_top_level_174 : bool)) }
+end
+
+module Flipdecrement__increment__num___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module Flipdecrement__increment__subprogram_def
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Flipdecrement__increment__num as Flipdecrement__increment__num
+  use Flipdecrement__decary as Flipdecrement__decary
+  use Flipdecrement__decary___axiom as Flipdecrement__decary___axiom
+  use Flipdecrement__decary___axiom as Flipdecrement__decary___axiom
+  use Flipdecrement__increment__num___axiom as Flipdecrement__increment__num___axiom
+  
+  let def (__void_param : unit)
+    requires { [#"flipdecrement.ads" 10 0 0] true }
+    ensures { [#"flipdecrement.ads" 10 0 0]
+              [#"flipdecrement.ads" 11 0 0]
+              [@GP_Reason:VC_POSTCONDITION]
+              [@comment:	  post => num = num'Old + 1;                   ^ flipdecrement.ads:11:19:VC_POSTCONDITION]
+              [@GP_Shape:pragargs__cmp]
+              [@model_vc_post]
+              [@GP_Id:2]
+              [@GP_Sloc:flipdecrement.ads:11:19]
+              [@GP_Pretty_Ada:940]
+              [@GP_Sloc:flipdecrement.ads:11:19]
+              ((Flipdecrement__increment__num.num.int__content)
+                 = ((old (Flipdecrement__increment__num.num.int__content))
+                      + (1 : int))) }
+  = [@vc:divergent]
+    (([@GNAT-comment:Assume dynamic invariants of inputs of the subprogram flipdecrement.ads:10]
+      ());
+     assume {
+       ((((Flipdecrement__decary___axiom.dynamic_invariant
+             (Flipdecrement__increment__num.num.int__content))
+            True)
+           False)
+          True)
+         True };
+     ([@GNAT-comment:Assume moved pointers in outputs of the subprogram flipdecrement.ads:10]
+      ());
+     ([@GNAT-comment:Check for RTE in the Pre of the subprogram flipdecrement.ads:10]
+      ());
+     ([@GNAT-comment:Assume Pre of the subprogram flipdecrement.ads:10] ());
+     (let temp___old_179 = Flipdecrement__increment__num.num.int__content in
+      (try
+         ([@GP_Sloc:flipdecrement.adb:14:21]
+          [#"flipdecrement.adb" 14 0 0]
+          [#"flipdecrement.adb" 14 0 0]
+          (Flipdecrement__increment__num.num.int__content <-
+             ([#"flipdecrement.adb" 14 0 0]
+              [@GP_Shape:num_assign__add]
+              [@vc:annotation]
+              [@GP_Reason:VC_RANGE_CHECK]
+              [@GP_Id:1]
+              [@GP_Sloc:flipdecrement.adb:14:28]
+              [@comment:		num := num + 1;                            ^ flipdecrement.adb:14:28:VC_RANGE_CHECK]
+              (Flipdecrement__decary.range_check_
+                 ((Flipdecrement__increment__num.num.int__content)
+                    + (1 : int))))));
+         (raise Return__exc)
+       with Return__exc -> ()
+       end);
+      (begin
+         ensures { true }
+         let _ =
+           let _ =
+             ((Flipdecrement__increment__num.num.int__content)
+                = (temp___old_179 + (1 : int))) in
+           () in
+         ()
+       end)))
+end

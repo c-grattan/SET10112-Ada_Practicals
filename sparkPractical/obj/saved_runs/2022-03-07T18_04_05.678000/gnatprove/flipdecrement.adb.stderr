@@ -1,0 +1,1 @@
+flipdecrement.adb:14:28: medium: range check might fail [reason for check: result of addition must fit in the target type of the assignment] [possible fix: subprogram at flipdecrement.ads:10 should mention num in a precondition][#0]

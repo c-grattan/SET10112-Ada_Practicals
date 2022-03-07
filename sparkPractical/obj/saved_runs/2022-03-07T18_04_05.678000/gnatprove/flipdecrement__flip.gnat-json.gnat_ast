@@ -1,0 +1,148 @@
+(* Module for defining a ref holding the value of variable "num" defined at flipdecrement.ads:5, created in Gnat2Why.Decls.Translate_Variable *)
+module Flipdecrement__flip__num
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  val num [model_projected] [name:num]
+  [model_trace:873] [sloc:flipdecrement.ads:5]: int
+
+end
+
+(* Module for axiomatizing type "binary" defined at flipdecrement.ads:3, created in Gnat2Why.Types.Translate_Type *)
+module Flipdecrement__binary
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type binary  = <range 0 1>
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = binary,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type binary__ref  = { mutable binary__content : binary }
+  
+  function   binary__ref_binary__content__projection (a : binary__ref)
+    requires {  } ensures  {  } returns binary = a.binary__content
+  
+  meta model_projection function binary__ref_binary__content__projection
+  
+  meta inline:no function binary__ref_binary__content__projection
+  
+  function   binary__havoc (x : binary__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module giving axioms for type "binary" defined at flipdecrement.ads:3, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Flipdecrement__binary___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Flipdecrement__binary
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_165) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_161) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_162) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_163) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_164) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_161) = True) \/
+          (Flipdecrement__binary.first <= Flipdecrement__binary.last))
+       then
+       (Flipdecrement__binary.dynamic_property Flipdecrement__binary.first
+          Flipdecrement__binary.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_165))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_166) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_167) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving an empty axiom for the entity "num" defined at flipdecrement.ads:5, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
+module Flipdecrement__flip__num___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module for checking contracts and absence of run-time errors in subprogram "flip" defined at flipdecrement.ads:5, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+module Flipdecrement__flip__subprogram_def
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        Flipdecrement__flip__num
+  use        Flipdecrement__binary___axiom
+  use        Flipdecrement__binary___axiom
+  use        Flipdecrement__flip__num___axiom
+  
+  function [GP_Subp:flipdecrement.ads:5] [sloc:flipdecrement.ads:5] def
+    (__void_param : unit) requires { True } ensures 
+    { ([sloc:flipdecrement.ads:6] ([GP_Reason:VC_POSTCONDITION]
+                                  [GP_Sloc:flipdecrement.ads:6:19]
+                                  [GP_Shape:pragargs__cmp] [model_vc_post]
+                                  [GP_Id:0]
+                                  [comment:	  post => num'Old /= num;                   ^ flipdecrement.ads:6:19:VC_POSTCONDITION] 
+                                  ([GP_Pretty_Ada:923]
+                                  [GP_Sloc:flipdecrement.ads:6:19] (--pp_tagged NOT IMPLEMENTED
+                                                                    <> !Flipdecrement__flip__num.num)))) }
+    returns
+     = (* Assume dynamic invariants of inputs of the subprogram flipdecrement.ads:5 *);
+        assume
+        { (Flipdecrement__binary___axiom.dynamic_invariant
+             !Flipdecrement__flip__num.num True False True True) };
+        (* Assume moved pointers in outputs of the subprogram flipdecrement.ads:5 *);
+        (* Check for RTE in the Pre of the subprogram flipdecrement.ads:5 *);
+        abstract ensures
+        { True } begin  (let _ = True in ())  end;
+        (* Assume Pre of the subprogram flipdecrement.ads:5 *);
+        (let ([mlw:proxy_symbol] [introduced] temp___old_177) =
+        !Flipdecrement__flip__num.num in (try
+        ();
+          ([GP_Sloc:flipdecrement.adb:5:17] ([sloc:flipdecrement.adb:5] 
+                                            (if
+                                            ([sloc:flipdecrement.adb:5] ([branch_id=828]
+                                            _gnatprove_standard.Main.spark__branch
+                                            :=
+                                            (!Flipdecrement__flip__num.num
+                                               = 0)));
+                                            ([branch_id=828] _gnatprove_standard.Main.spark__branch).bool__content
+                                            then
+                                            ();
+                                            ([GP_Sloc:flipdecrement.adb:6:29] 
+                                            ([sloc:flipdecrement.adb:6] (
+                                            Flipdecrement__flip__num.num :=
+                                            ( 1))))  else
+                                            ();
+                                            ([GP_Sloc:flipdecrement.adb:8:37] 
+                                            ([sloc:flipdecrement.adb:8] (
+                                            Flipdecrement__flip__num.num :=
+                                            ( 0)))))));
+          raise Return__exc with | Return__exc  -> ());
+        abstract ensures
+        { True } begin  (let _ =
+                       (([mlw:proxy_symbol] [introduced] temp___old_177)
+                          <> !Flipdecrement__flip__num.num)
+                       in ())  end)
+
+end

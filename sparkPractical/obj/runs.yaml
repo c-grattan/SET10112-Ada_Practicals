@@ -1,0 +1,49 @@
+'2022-03-07T17:54:43.100000':
+  category: GNATprove
+  files:
+  - C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\sparkPractical\obj\gnatprove
+  label: Basic Prove All
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester
+    2\FASE\ADA\SET10112-Ada_Practicals\sparkPractical\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-07T17:54:43.100000'
+'2022-03-07T18:04:05.678000':
+  category: GNATprove
+  files:
+  - C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\sparkPractical\obj\gnatprove
+  label: Basic Prove All
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    flipdecrement.adb:14:28: medium: range check might fail [reason for check: result
+    of addition must fit in the target type of the assignment] [possible fix: subprogram
+    at flipdecrement.ads:10 should mention num in a precondition][#0]
+
+    Summary logged in C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester
+    2\FASE\ADA\SET10112-Ada_Practicals\sparkPractical\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-07T18:04:05.678000'
+'2022-03-07T18:04:54.686000':
+  category: GNATprove
+  files:
+  - C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester 2\FASE\ADA\SET10112-Ada_Practicals\sparkPractical\obj\gnatprove
+  label: Basic Prove All Sources
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in C:\Users\Fizzy\SkyDrive\Documents\University\Year 4\Semester
+    2\FASE\ADA\SET10112-Ada_Practicals\sparkPractical\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-07T18:04:54.686000'
